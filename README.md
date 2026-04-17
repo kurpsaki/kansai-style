@@ -31,7 +31,7 @@ Japanese keigo (敬語) uses 30–60% more tokens than casual speech for the sam
 
 | Agent | Config file | Platforms |
 | --- | --- | --- |
-| Claude Code | `.claude/skills/kansai/SKILL.md` | Windows / macOS / Linux |
+| Claude Code | `.claude/skills/kansai-style/SKILL.md` | Windows / macOS / Linux |
 | Cursor | `.cursorrules` | Windows / macOS / Linux |
 | GitHub Copilot | `.github/copilot-instructions.md` | Windows / macOS / Linux |
 | Codex CLI & other `AGENTS.md` readers | `AGENTS.md` | Windows / macOS / Linux |
@@ -41,7 +41,7 @@ Japanese keigo (敬語) uses 30–60% more tokens than casual speech for the sam
 Clone the repo, then copy the files you need:
 
 ```bash
-git clone https://github.com/your-org/kansai-style.git
+git clone https://github.com/kurpsaki/kansai-style.git
 cd kansai-style
 ```
 
@@ -49,16 +49,16 @@ cd kansai-style
 
 ```bash
 # project-local — macOS / Linux
-cp -r .claude/skills/kansai YOUR_PROJECT/.claude/skills/
+cp -r .claude/skills/kansai-style YOUR_PROJECT/.claude/skills/
 
 # project-local — Windows PowerShell
-Copy-Item -Recurse .claude\skills\kansai YOUR_PROJECT\.claude\skills\
+Copy-Item -Recurse .claude\skills\kansai-style YOUR_PROJECT\.claude\skills\
 
 # user-global — macOS / Linux
-cp -r .claude/skills/kansai ~/.claude/skills/
+cp -r .claude/skills/kansai-style ~/.claude/skills/
 
 # user-global — Windows PowerShell
-Copy-Item -Recurse .claude\skills\kansai $env:USERPROFILE\.claude\skills\
+Copy-Item -Recurse .claude\skills\kansai-style $env:USERPROFILE\.claude\skills\
 ```
 
 Claude Code auto-loads skills whose `description` matches the user request. Trigger with `関西弁で応答して` or `タメ口で`.
@@ -97,6 +97,17 @@ cp AGENTS.md YOUR_PROJECT/
 Copy-Item AGENTS.md YOUR_PROJECT\
 ```
 
+### Always-on activation (no trigger word needed)
+
+To get Kansai-ben replies in **every** project without typing "関西弁で応答して" each time, add this to your global user `CLAUDE.md` (`~/.claude/CLAUDE.md` on macOS/Linux, `%USERPROFILE%\.claude\CLAUDE.md` on Windows):
+
+````markdown
+## Style (always on)
+日本語の応答は常に `kansai-style` スキルを適用する。語尾ルール・禁止ワード・簡潔置換ルールを常時使用し、トリガーワードなしで発火する。
+````
+
+Make sure `kansai-style` lives in the user-global skills directory (`~/.claude/skills/kansai-style/`) so the skill is discoverable from any CWD.
+
 ### Token reduction example
 
 | Style | Text | Chars | ≈ tokens |
@@ -126,7 +137,7 @@ MIT — see [LICENSE](LICENSE).
 
 | エージェント | 設定ファイル | OS |
 | --- | --- | --- |
-| Claude Code | `.claude/skills/kansai/SKILL.md` | Windows / macOS / Linux |
+| Claude Code | `.claude/skills/kansai-style/SKILL.md` | Windows / macOS / Linux |
 | Cursor | `.cursorrules` | Windows / macOS / Linux |
 | GitHub Copilot | `.github/copilot-instructions.md` | Windows / macOS / Linux |
 | Codex CLI ほか `AGENTS.md` 準拠ツール | `AGENTS.md` | Windows / macOS / Linux |
@@ -136,7 +147,7 @@ MIT — see [LICENSE](LICENSE).
 このリポジトリをクローンして、必要なファイルをあんたのプロジェクトにコピーするだけやで。
 
 ```bash
-git clone https://github.com/your-org/kansai-style.git
+git clone https://github.com/kurpsaki/kansai-style.git
 cd kansai-style
 ```
 
@@ -144,16 +155,16 @@ cd kansai-style
 
 ```bash
 # プロジェクト単位（macOS / Linux）
-cp -r .claude/skills/kansai YOUR_PROJECT/.claude/skills/
+cp -r .claude/skills/kansai-style YOUR_PROJECT/.claude/skills/
 
 # プロジェクト単位（Windows PowerShell）
-Copy-Item -Recurse .claude\skills\kansai YOUR_PROJECT\.claude\skills\
+Copy-Item -Recurse .claude\skills\kansai-style YOUR_PROJECT\.claude\skills\
 
 # ユーザー全体（macOS / Linux）
-cp -r .claude/skills/kansai ~/.claude/skills/
+cp -r .claude/skills/kansai-style ~/.claude/skills/
 
 # ユーザー全体（Windows PowerShell）
-Copy-Item -Recurse .claude\skills\kansai $env:USERPROFILE\.claude\skills\
+Copy-Item -Recurse .claude\skills\kansai-style $env:USERPROFILE\.claude\skills\
 ```
 
 「関西弁で応答して」「タメ口で」と指示したら自動で発火する。
@@ -191,6 +202,17 @@ cp AGENTS.md YOUR_PROJECT/
 # Windows PowerShell
 Copy-Item AGENTS.md YOUR_PROJECT\
 ```
+
+### 常時適用（トリガーワード不要）
+
+どのプロジェクトでも毎回「関西弁で応答して」と言わずに関西弁応答させたい場合、グローバルユーザー `CLAUDE.md`（macOS/Linux は `~/.claude/CLAUDE.md`、Windows は `%USERPROFILE%\.claude\CLAUDE.md`）に以下を追記してや：
+
+````markdown
+## スタイル（常時適用）
+日本語の応答は常に `kansai-style` スキルを適用する。語尾ルール・禁止ワード・簡潔置換ルールを常時使用し、トリガーワードなしで発火する。
+````
+
+併せて、`kansai-style` をユーザーグローバルのスキルディレクトリ（`~/.claude/skills/kansai-style/`）に置いてや。どの CWD からも見つけられるようになる。
 
 ### トークン削減例（敬語 → 関西弁）
 
