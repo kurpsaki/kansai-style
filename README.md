@@ -1,8 +1,8 @@
 # kansai-style
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20CLI%20%7C%20Copilot%20%7C%20Cursor-blue)](#supported-agents--対応エージェント)
-[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#install--インストール)
+[![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20CLI%20%7C%20Copilot%20%7C%20Cursor-blue)](#対応エージェント)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#インストール)
 
 AI コーディング支援エージェントに**関西弁・タメ口**で喋らせるスタイル集やで。敬語とクッション言葉を削って、日本語出力を **30〜60% 短く**する。
 
@@ -14,9 +14,7 @@ AI コーディング支援エージェントに**関西弁・タメ口**で喋�
 
 ---
 
-## 日本語
-
-### なんで作ったか
+## なんで作ったか
 
 日本語の敬語は同じ意味をカジュアル表現より 30〜60% 多いトークンで書くで。`kansai-style` はそれを削るスタイル集やねん：
 
@@ -25,7 +23,7 @@ AI コーディング支援エージェントに**関西弁・タメ口**で喋�
 - コード・識別子・英語技術用語は触らへん
 - Claude Code / Cursor / Copilot / Codex CLI（AGENTS.md）に対応
 
-### 対応エージェント
+## 対応エージェント
 
 | エージェント | 設定ファイル | OS |
 | --- | --- | --- |
@@ -34,7 +32,7 @@ AI コーディング支援エージェントに**関西弁・タメ口**で喋�
 | GitHub Copilot | `.github/copilot-instructions.md` | Windows / macOS / Linux |
 | Codex CLI ほか `AGENTS.md` 準拠ツール | `AGENTS.md` | Windows / macOS / Linux |
 
-### インストール
+## インストール
 
 このリポジトリをクローンして、必要なファイルをあんたのプロジェクトにコピーするだけやで。
 
@@ -43,7 +41,7 @@ git clone https://github.com/kurpsaki/kansai-style.git
 cd kansai-style
 ```
 
-#### Claude Code の場合
+### Claude Code の場合
 
 ```bash
 # プロジェクト単位（macOS / Linux）
@@ -61,7 +59,7 @@ Copy-Item -Recurse .claude\skills\kansai-style $env:USERPROFILE\.claude\skills\
 
 「関西弁で応答して」「タメ口で」と指示したら自動で発火する。
 
-#### Cursor の場合
+### Cursor の場合
 
 ```bash
 # macOS / Linux
@@ -73,7 +71,7 @@ Copy-Item .cursorrules YOUR_PROJECT\
 
 Cursor がプロジェクトルートの `.cursorrules` を自動で読む。
 
-#### GitHub Copilot の場合
+### GitHub Copilot の場合
 
 ```bash
 # macOS / Linux
@@ -85,7 +83,7 @@ New-Item -ItemType Directory -Force YOUR_PROJECT\.github
 Copy-Item .github\copilot-instructions.md YOUR_PROJECT\.github\
 ```
 
-#### Codex CLI（AGENTS.md 読み込みツール）の場合
+### Codex CLI（AGENTS.md 読み込みツール）の場合
 
 ```bash
 # macOS / Linux
@@ -95,7 +93,7 @@ cp AGENTS.md YOUR_PROJECT/
 Copy-Item AGENTS.md YOUR_PROJECT\
 ```
 
-### 常時適用（トリガーワード不要）
+## 常時適用（トリガーワード不要）
 
 どのプロジェクトでも毎回「関西弁で応答して」と言わずに関西弁応答させたい場合、グローバルユーザー `CLAUDE.md`（macOS/Linux は `~/.claude/CLAUDE.md`、Windows は `%USERPROFILE%\.claude\CLAUDE.md`）に以下を追記してや：
 
@@ -112,7 +110,7 @@ Copy-Item AGENTS.md YOUR_PROJECT\
 
 スキル名だけ参照する書き方（`kansai-style` スキルを適用する、みたいな一行）は発火せえへん場合があるから、上みたいにルールを直書きするのがおすすめや。併せて `kansai-style` をユーザーグローバルのスキルディレクトリ（`~/.claude/skills/kansai-style/`）にも置いとくと、トリガーワード指定時にちゃんと発火する。
 
-### トークン削減例（敬語 → 関西弁）
+## トークン削減例（敬語 → 関西弁）
 
 | スタイル | テキスト | 文字数 | ≈ トークン |
 | --- | --- | --- | --- |
@@ -129,6 +127,6 @@ Copy-Item AGENTS.md YOUR_PROJECT\
 | 敬語 | ご指摘いただいた箇所について修正させていただきました。ご確認のほどよろしくお願いいたします。 | 41 |
 | 関西弁 | 指摘もろた分、直したで。確認してや。 | 18 |
 
-### ライセンス
+## ライセンス
 
 MIT — [LICENSE](LICENSE) を見てな。
