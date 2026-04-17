@@ -1,0 +1,8 @@
+# OS
+.DS_Store
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# Claude Code local state
+.claude/state/
