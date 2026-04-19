@@ -6,3 +6,4 @@ Desktop.ini
 
 # Claude Code local state
 .claude/state/
+.claude/settings.local.json
