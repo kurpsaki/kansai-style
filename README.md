@@ -10,7 +10,7 @@ AI コーディング支援エージェントに**関西弁・タメ口**で喋�
 
 ## Demo / 紹介動画
 
-<video src="https://github.com/user-attachments/assets/7a182ade-7f36-4a4b-8984-61abc7e2016a" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/7c308cab-2289-40ea-99a1-30fb408816a8" controls width="100%"></video>
 
 ---
 
